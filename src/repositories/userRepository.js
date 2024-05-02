@@ -1,15 +1,13 @@
-const { User, sequelize } = require('../database/models/user');
-const { QueryTypes } = require('sequelize');
+const httpStatus = require("../utils/statusCode");
+const ApiError = require("../utils/ApiError")
 
-class UserRepository {
-  
-  async getAll() {
-    return User.getAll(
-      { attributes: ['id', 'full_name', 'email'] }
+
+class UserRepository{
+  async getAll(){
+    return User.findAll(
+        { attributes: ['id', 'full_name', 'email',] }
     );
-  };
+};
 }
 
-
-
-module.exports = new UserRepository();
+module.exports = UserRepository();
