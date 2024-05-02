@@ -1,7 +1,7 @@
 const httpStatus = require("../utils/statusCode");
 const ApiError = require("../utils/ApiError")
-const db = require("../models");
-const User = db.User;
+const db = require("../database/models");
+const User = db.user;
 
 
 class UserRepository{
@@ -15,4 +15,4 @@ class UserRepository{
     }
 }};
 
-module.exports = UserRepository();
+module.exports = new UserRepository();
